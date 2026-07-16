@@ -1,0 +1,7 @@
+services:
+  website:
+    build: .
+    container_name: cicd-project
+    ports:
+      - "8085:80"
+    restart: unless-stopped
