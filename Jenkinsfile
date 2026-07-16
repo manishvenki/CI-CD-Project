@@ -11,31 +11,31 @@ pipeline {
 
         stage('Verify Workspace') {
             steps {
-                bat 'dir'
+                sh "ls -la"
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t cicd-project:v1 .'
+                sh 'docker build -t cicd-project:v1 .'
             }
         }
 
         stage('Stop Old Container') {
             steps {
-                bat 'docker rm -f cicd-project || exit 0'
+                sh 'docker rm -f cicd-project || exit 0'
             }
         }
 
         stage('Run Container') {
             steps {
-                bat 'docker compose up -d --build'
+                sh 'docker compose up -d --build'
             }
         }
 
         stage('Verify') {
             steps {
-                bat 'docker ps'
+                sh 'docker ps'
             }
         }
     }
