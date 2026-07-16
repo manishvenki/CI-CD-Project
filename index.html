@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Demo Pipeline - DevOps Landing Page</title>
+    <meta name="description" content="A beginner-friendly demonstration landing page for end-to-end DevOps CI/CD workflow, integrating Git, Jenkins, Docker, Terraform, Kubernetes, and monitoring.">
+    <!-- Links to styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for DevOps tool icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Ambient glowing backgrounds -->
+    <div class="glowing-blob blob-1"></div>
+    <div class="glowing-blob blob-2"></div>
+    <div class="glowing-blob blob-3"></div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="nav-logo" id="navLogo">
+                <i class="fa-solid fa-code-branch logo-icon"></i>
+                <span>CI/CD.Pipeline</span>
+            </a>
+            
+            <button class="hamburger" id="hamburgerMenu" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
+                <li><a href="#deployment" class="nav-link">Deployment</a></li>
+                <li><button class="nav-btn" id="navDeployBtn">Deploy Now</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Landing Sections -->
+    <main>
+        
+        <!-- 1. Hero Section -->
+        <section id="hero" class="hero-section section-padding">
+            <div class="container">
+                <div class="hero-badge-container">
+                    <div class="hero-badge">
+                        <span></span> Version 1.0 Active
+                    </div>
+                </div>
+                
+                <h1 class="hero-title">
+                    Hello DevOps <span class="wave-icon">🚀</span>
+                </h1>
+                
+                <h2 class="hero-subtitle">CI/CD Demo Pipeline</h2>
+                
+                <p class="hero-desc">
+                    This website serves as a visual deployment target demonstrating a fully automated end-to-end CI/CD workflow. Learn how files commit, build, package, orchestrate, and monitor automatically.
+                </p>
+                
+                <div class="cta-group">
+                    <button class="btn btn-primary" id="heroDeployBtn">
+                        <i class="fa-solid fa-rocket"></i> Deploy Now
+                    </button>
+                    <a href="#pipeline" class="btn btn-secondary">
+                        <i class="fa-solid fa-circle-play"></i> View Pipeline
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Features Section -->
+        <section id="features" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Core DevOps Toolchain</h2>
+                    <p class="section-subtitle">A modern, integrated suite of industry-standard tools orchestrating code execution from development through deployment.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <!-- Feature: Git & GitHub -->
+                    <div class="glass-card feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <h3 class="feature-title">Git & GitHub</h3>
+                        <p class="feature-desc">Source control management. Changes trigger webhooks to kick off build pipelines immediately on commit.</p>
+                    </div>
+
+                    <!-- Feature: Docker -->
+                    <div class="glass-card feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-brands fa-docker"></i>
+                        </div>
+                        <h3 class="feature-title">Docker</h3>
+                        <p class="feature-desc">Containerization engine packaging code and dependencies, ensuring runs behave identically across all stages.</p>
+                    </div>
+
+                    <!-- Feature: Jenkins -->
+                    <div class="glass-card feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-brands fa-jenkins"></i>
+                        </div>
+                        <h3 class="feature-title">Jenkins</h3>
+                        <p class="feature-desc">Automation orchestrator managing jobs for building code, running verification steps, and launching deployments.</p>
+                    </div>
+
+                    <!-- Feature: Terraform -->
+                    <div class="glass-card feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-cloud-sun"></i>
+                        </div>
+                        <h3 class="feature-title">Terraform</h3>
+                        <p class="feature-desc">Infrastructure as Code (IaC) describing cloud configuration in declarative files to deploy predictably.</p>
+                    </div>
+
+                    <!-- Feature: Kubernetes -->
+                    <div class="glass-card feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-dharmachakra"></i>
+                        </div>
+                        <h3 class="feature-title">Kubernetes</h3>
+                        <p class="feature-desc">Container orchestrator managing application deployment scaling, networking, and rolling updates.</p>
+                    </div>
+
+                    <!-- Feature: Prometheus -->
+                    <div class="glass-card feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="feature-title">Prometheus</h3>
+                        <p class="feature-desc">Time-series data monitoring platform generating alarms and collecting telemetry metrics.</p>
+                    </div>
+
+                    <!-- Feature: Grafana -->
+                    <div class="glass-card feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h3 class="feature-title">Grafana</h3>
+                        <p class="feature-desc">Rich visualization dashboard mapping Prometheus metrics to graphical interface analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CI/CD Pipeline Flow Section -->
+        <section id="pipeline" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Automated Flow Pipeline</h2>
+                    <p class="section-subtitle">Visual workflow progression showing how modifications flow through checking, build, and monitoring.</p>
+                </div>
+                
+                <div class="pipeline-container">
+                    <div class="pipeline-flow">
+                        <!-- Step 1: Developer -->
+                        <div class="glass-card pipeline-node">
+                            <div class="pipeline-node-icon">
+                                <i class="fa-solid fa-user-gear"></i>
+                            </div>
+                            <span class="pipeline-node-name">Developer</span>
+                            <span class="pipeline-node-desc">Commits Code</span>
+                        </div>
+                        
+                        <div class="pipeline-connector">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <!-- Step 2: GitHub -->
+                        <div class="glass-card pipeline-node">
+                            <div class="pipeline-node-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <span class="pipeline-node-name">GitHub</span>
+                            <span class="pipeline-node-desc">Code Repository</span>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <!-- Step 3: Jenkins -->
+                        <div class="glass-card pipeline-node">
+                            <div class="pipeline-node-icon">
+                                <i class="fa-brands fa-jenkins"></i>
+                            </div>
+                            <span class="pipeline-node-name">Jenkins</span>
+                            <span class="pipeline-node-desc">CI Build & Test</span>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <!-- Step 4: Docker -->
+                        <div class="glass-card pipeline-node">
+                            <div class="pipeline-node-icon">
+                                <i class="fa-brands fa-docker"></i>
+                            </div>
+                            <span class="pipeline-node-name">Docker</span>
+                            <span class="pipeline-node-desc">Containerize Image</span>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <!-- Step 5: Terraform -->
+                        <div class="glass-card pipeline-node">
+                            <div class="pipeline-node-icon">
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                            <span class="pipeline-node-name">Terraform</span>
+                            <span class="pipeline-node-desc">Deploy Infra</span>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <!-- Step 6: Kubernetes -->
+                        <div class="glass-card pipeline-node">
+                            <div class="pipeline-node-icon">
+                                <i class="fa-solid fa-dharmachakra"></i>
+                            </div>
+                            <span class="pipeline-node-name">Kubernetes</span>
+                            <span class="pipeline-node-desc">Orchestrate Pods</span>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <!-- Step 7: Monitoring -->
+                        <div class="glass-card pipeline-node">
+                            <div class="pipeline-node-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span class="pipeline-node-name">Monitoring</span>
+                            <span class="pipeline-node-desc">Prometheus & Grafana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Deployment Information Card -->
+        <section id="deployment" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Telemetry & Deployment Status</h2>
+                    <p class="section-subtitle">Real-time status indicators reflecting the state of the active environment.</p>
+                </div>
+                
+                <div class="deployment-grid">
+                    <div class="glass-card deployment-card">
+                        <div class="deployment-header">
+                            <span class="deployment-header-title">
+                                <i class="fa-solid fa-server"></i> STAGE-DEV-TELEMETRY
+                            </span>
+                            <div class="hero-badge">
+                                <span class="status-indicator"></span> V1.0-LIVE
+                            </div>
+                        </div>
+                        <div class="deployment-body">
+                            <div class="deployment-item">
+                                <span class="deployment-label">Application Name</span>
+                                <span class="deployment-val">CI/CD Demo Pipeline</span>
+                            </div>
+                            <div class="deployment-item">
+                                <span class="deployment-label">Environment</span>
+                                <span class="deployment-val">Development</span>
+                            </div>
+                            <div class="deployment-item">
+                                <span class="deployment-label">Version</span>
+                                <span class="deployment-val">1.0</span>
+                            </div>
+                            <div class="deployment-item">
+                                <span class="deployment-label">Status</span>
+                                <span class="deployment-val status-active">
+                                    <span class="status-indicator"></span> Successfully Deployed ✅
+                                </span>
+                            </div>
+                            <div class="deployment-item full-width">
+                                <span class="deployment-label">Deployment Time</span>
+                                <span class="deployment-val time-display" id="deploymentTime">Loading current timestamp...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive DevOps Terminal Simulation Modal -->
+    <div class="terminal-modal" id="terminalModal">
+        <div class="terminal-card">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-btn-dot red"></span>
+                    <span class="terminal-btn-dot yellow"></span>
+                    <span class="terminal-btn-dot green"></span>
+                </div>
+                <span class="terminal-title">bash - pipeline-deploy.sh --env dev</span>
+                <button class="terminal-close" id="terminalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+                <ul class="terminal-logs" id="terminalLogs">
+                    <!-- Dynamic deployment log lines will be inserted here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Footer Section -->
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo">
+                <i class="fa-solid fa-code-branch logo-icon"></i>
+                <span>CI/CD.Pipeline</span>
+            </a>
+            <p class="footer-desc">
+                Built for learning DevOps, CI/CD, Docker, Kubernetes, and Cloud Technologies.
+            </p>
+            <div class="footer-socials">
+                <a href="#" class="footer-social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="footer-social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="footer-social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="footer-social-link" aria-label="Docker Hub"><i class="fa-brands fa-docker"></i></a>
+            </div>
+            <p class="footer-copy">
+                &copy; 2026 CI/CD Demo Pipeline. All rights reserved. Created for demonstration and learning.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
